@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,IntegerField,SelectField,SubmitField
-from wtforms.validators import DataRequired,NumberRange
+from wtforms import StringField,IntegerField,SelectField,SubmitField, PasswordField, BooleanField
+from wtforms.validators import DataRequired,NumberRange, Length, Email, EqualTo
 
 
 
@@ -31,3 +31,9 @@ class moveproduct(FlaskForm):
         'Destination')
     mprodqty = IntegerField('Quantity', validators=[NumberRange(min=5, max=1000000),DataRequired()])
     movesubmit = SubmitField('Move')
+
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators = [DataRequired(), Email()])
+    password = PasswordField('Password', validators = DataRequired())
+    remember = BooleanField ('Remember Me')
+    submit = SubmitField ('Sign In')
