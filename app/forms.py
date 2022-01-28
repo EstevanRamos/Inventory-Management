@@ -3,37 +3,8 @@ from wtforms import StringField,IntegerField,SelectField,SubmitField, PasswordFi
 from wtforms.validators import DataRequired,NumberRange, Email
 
 
-
-class addproduct(FlaskForm):
-    prodname = StringField('Product Name', validators=[DataRequired()])
-    prodqty = IntegerField('Quantity', validators=[NumberRange(min=5, max=1000000),DataRequired()])
-    prodsubmit = SubmitField('Save Changes')
-
-class editproduct(FlaskForm):
-    editname = StringField('Product Name', validators=[DataRequired()])
-    editqty = IntegerField('Quantity', validators=[NumberRange(min=5, max=1000000),DataRequired()])
-    editsubmit = SubmitField('Save Changes')
-
-class addlocation(FlaskForm):
-    locname = StringField('Location Name', validators=[DataRequired()])
-    locsubmit = SubmitField('Save Changes')
-
-class editlocation(FlaskForm):
-    editlocname = StringField('Location Name', validators=[DataRequired()])
-    editlocsubmit = SubmitField('Save Changes')
-
-class moveproduct(FlaskForm):
-    mprodname = SelectField(
-        'Product Name')
-    src = SelectField(
-        'Source')
-    destination = SelectField(
-        'Destination')
-    mprodqty = IntegerField('Quantity', validators=[NumberRange(min=5, max=1000000),DataRequired()])
-    movesubmit = SubmitField('Move')
-
 class LoginForm(FlaskForm):
     email = StringField('Email', validators = [DataRequired(), Email()])
-    password = PasswordField('Password', validators = DataRequired())
+    password = PasswordField('Password', validators = [DataRequired()])
     remember = BooleanField ('Remember Me')
     submit = SubmitField ('Sign In')

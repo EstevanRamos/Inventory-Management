@@ -15,4 +15,4 @@ def data():
 @app.route('/login')
 def login():
     form = LoginForm()
-    return render_template('login.hml', title = 'Register', form = form)
+    return render_template('login.html', title = 'Register', form = form)
