@@ -13,6 +13,8 @@
         <th>Consignee</th>
         <th>Customer</th>
         <th>Notes</th>
+        <th>Factored by</th>
+
       </tr>
     </thead>
     <tbody>
@@ -32,8 +34,10 @@
           {data: 'datein', searchable: false},
           {data: 'dateout', searchable: false},
           {data: 'shipper' },
+          {data: 'consignee'},
           {data: 'customer'},
           {data: 'notes',orderable: false, searchable: false},
+          {data: 'factored_by' }
         ],
       });
     });
