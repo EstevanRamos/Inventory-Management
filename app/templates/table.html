@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Commodity</th>
+        <th>Entry Type</th>
+        <th>Quantity</th>
+        <th>Date In</th>
+        <th>Date Out</th>
+        <th>Shipper</th>
+        <th>Consignee</th>
+        <th>Customer</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable({
+        ajax: '/api/data',
+        columns: [
+          {data: 'item'},
+          {data: 'entry_type', orderable: false},
+          {data: 'quantity',orderable: false, searchable: false},
+          {data: 'datein', searchable: false},
+          {data: 'dateout', searchable: false},
+          {data: 'shipper' },
+          {data: 'customer'},
+          {data: 'notes',orderable: false, searchable: false},
+        ],
+      });
+    });
+  </script>
+{% endblock %}
