@@ -1,10 +1,7 @@
 from app import app
 from flask import render_template
-from forms import LoginForm
-
+from app.forms import LoginForm
 from app.models import Commodity
-
-app.config['SECRET_KEY'] = 'd9853defe860cd4c0be6b473aeb28bbc'
 
 @app.route('/')
 def index():
