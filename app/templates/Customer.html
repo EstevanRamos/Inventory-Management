@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class = mb-3>
+        <h1>New Customer</h1>
+        <form action="" method="post" novalidate>
+            <div class = 'form-group'>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.first_name.label }}<br>
+                {{ form.first_name(size=32) }}
+            </p>
+            <p>
+                {{ form.last_name.label }}<br>
+                {{ form.last_name(size=32) }}
+            </p>
+            <p>
+                {{ form.company_name.label }}<br>
+                {{ form.company_name(size=32) }}
+            </p>
+            <p>
+                {{ form.email.label }}<br>
+                {{ form.email(size=32) }}
+            </p>
+            <p>
+                {{ form.whatsapp.label }}<br>
+                {{ form.whatsapp(size=32) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </div>
+        </form>
+
+    </div>
+{% endblock %}

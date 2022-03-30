@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template
-from app.forms import LoginForm
+from app.forms import CustomerForm
 from app.models import Commodity
 
 @app.route('/')
@@ -12,7 +12,7 @@ def index():
 def data():
     return {'data': [Commodity.to_dict() for Commodity in Commodity.query]}
 
-@app.route('/login')
-def login():
-    form = LoginForm()
-    return render_template('login.html', title = 'Register', form = form)
+@app.route('/Customer')
+def Customer():
+    form = CustomerForm()
+    return render_template('Customer.html', title = 'Wholesale Imports and Exports', form = form)
