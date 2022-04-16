@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-wrapper">
+    <h2 class="title">New Customer</h2>
+
+    <form method="POST" action="{{ url_for('customer') }}">
+
+        <fieldset class="form-field">
+            {{ form.first_name.label }}
+            {{ form.first_name(size=20) }}
+        </fieldset>
+
+        <fieldset class="form-field">
+            {{ form.last_name.label }}
+            {{ form.last_name(size=20) }}
+        </fieldset>
+
+        <fieldset class="form-field">
+            {{ form.company_name.label }}
+            {{ form.company_name(size=20) }}
+        </fieldset>
+
+        <fieldset class="form-field">
+            {{ form.email.label }}
+            {{ form.email }}
+        </fieldset>
+
+        <fieldset class="form-field">
+            {{ form.whatsapp.label }}
+            {{ form.whatsapp }}
+        </fieldset>
+
+        {{ form.submit }}
+
+    </form>
+  </div>
+{% endblock %}

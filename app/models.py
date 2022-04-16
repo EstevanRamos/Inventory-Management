@@ -5,15 +5,6 @@ from sqlalchemy.orm import relationship
 from app import db
 from datetime import datetime
 
-'''
-customer_identifier = db.Table('customer_identifier',
-    db.Column('commodity', db.Integer, db.ForeignKey('commoditys.id'), primary_key=True),
-    db.Column('shipper', db.Integer, db.ForeignKey('customers.id')),
-    db.Column('consignee', db.Integer, db.ForeignKey('customers.id')),
-    db.Column('customer', db.Integer, db.ForeignKey('customers.id')),
-)
-'''
-
 class Customer(db.Model):
     __tablename__ = 'customer' 
     id = db.Column(db.Integer, primary_key=True)
@@ -56,9 +47,9 @@ class Commodity(db.Model):
             'quantity': self.quantity,
             'datein': self.datein,
             'dateout': self.dateout,
-          # 'shipper': self.shipper_id,
-           # 'consignee': self.consignee_id,
-            #'customer': self.customer_id,
+            'shipper': self.shipper.first_name +" " +self.shipper.last_name,
+            'consignee': self.consignee.first_name +" " +self.consignee.last_name,
+            'customer': self.c.first_name + " " +self.c.last_name,
             'notes': self.notes,
             'status':self.status
         }
